@@ -1,0 +1,7 @@
+/minecraft
+/build
+/forge
+*.DS_Store
+/.gradle
+/.idea
+*iml

@@ -1,0 +1,30 @@
+import com.github.abrarsyed.gmcp.GMCP
+
+buildscript {
+	repositories { mavenCentral() }
+	dependencies { classpath 'com.github.abrarsyed.gmcp:GMCP:0.8.+' }
+}
+
+apply plugin: "gmcp"
+
+group = 'dayz'
+version = "0.1"
+archivesBaseName = 'DayZ-Minecraft'
+minecraft { minecraftVersion = "1.6.4" }
+
+processResources
+{
+    from(sourceSets.main.resources.srcDirs) {
+        include '**/*.lang'
+        include '**/*.info'
+
+        expand 'version':project.version, 'mcversion':project.minecraft.minecraftVersion
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude '**/*.lang'
+        exclude '**/*.info'
+    }
+}
+
+jar { extension = 'jar'}
