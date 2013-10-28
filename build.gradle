@@ -2,12 +2,13 @@ import com.github.abrarsyed.gmcp.GMCP
 
 buildscript {
 	repositories { mavenCentral() }
-	dependencies { classpath 'com.github.abrarsyed.gmcp:GMCP:0.8.+' }
+	dependencies { classpath 'com.github.abrarsyed.gmcp:GMCP:latest.integration' }
 }
 
 apply plugin: "gmcp"
+apply plugin: "scala"
 
-group = 'dayz'
+group = 'com.github.dayzminecraft.dayzscala'
 version = "0.1"
 archivesBaseName = 'DayZ-Minecraft'
 minecraft { minecraftVersion = "1.6.4" }
