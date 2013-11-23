@@ -5,20 +5,17 @@ import cpw.mods.fml.common.network.{Player, PacketDispatcher}
 import net.minecraft.entity.player.EntityPlayer
 import cpw.mods.fml.common.event._
 import net.minecraft.network.INetworkManager
-import com.github.dayzminecraft.dayzscala.DayZ
-import java.io.File
-import cpw.mods.fml.common.registry.GameRegistry
 import net.minecraftforge.common.MinecraftForge
+import dayz.common.world.WorldTypes
 
 class CommonProxy {
   def preInit(e: FMLPreInitializationEvent) = {
-    DayZ.playerDataLocation = new File(e.getSuggestedConfigurationFile, "/PlayerData")
-    DayZ.playerDataLocation.mkdirs
     MinecraftForge.EVENT_BUS.register(CommonEvents)
+    MinecraftForge.TERRAIN_GEN_BUS.register(CommonEventsTerrain)
   }
 
   def init(e: FMLInitializationEvent) = {
-    GameRegistry.registerPlayerTracker(new CommonPlayerHandler)
+    WorldTypes.loadWorldTypes()
   }
 
   def postInit(e: FMLPostInitializationEvent) = {
@@ -38,10 +35,10 @@ class CommonProxy {
   }
 
   def sendPacket(packet: Packet) = {
-    PacketDispatcher.sendPacketToAllPlayers(packet)
+
   }
 
   def sendPacketToPlayer(packet: Packet, player: EntityPlayer) = {
-    PacketDispatcher.sendPacketToPlayer(packet, player.asInstanceOf[Player])
+
   }
 }

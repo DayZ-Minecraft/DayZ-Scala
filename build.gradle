@@ -1,31 +1,35 @@
-import com.github.abrarsyed.gmcp.GMCP
-
 buildscript {
-	repositories { mavenCentral() }
-	dependencies { classpath 'com.github.abrarsyed.gmcp:GMCP:latest.integration' }
+    repositories {
+        mavenCentral()
+		mavenLocal()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.0-SNAPSHOT'
+    }
 }
 
-apply plugin: "gmcp"
-apply plugin: "scala"
+apply plugin: 'forge'
 
 group = 'com.github.dayzminecraft.dayzscala'
-version = "0.1"
-archivesBaseName = 'DayZ-Minecraft'
-minecraft { minecraftVersion = "1.6.4" }
+version = "9.0"
+minecraftVersion = "1.6.4"
+archivesBaseName = 'DayZ-Scala'
+
+minecraft {
+	version = "1.6.4-9.11.1.960"
+}
 
 processResources
 {
     from(sourceSets.main.resources.srcDirs) {
-        include '**/*.lang'
-        include '**/*.info'
-
-        expand 'version':project.version, 'mcversion':project.minecraft.minecraftVersion
-    }
-
+        include 'mcmod/info'               
+        expand 'version':project.version, 'mcversion':project.version
+    }       
     from(sourceSets.main.resources.srcDirs) {
-        exclude '**/*.lang'
-        exclude '**/*.info'
+        exclude 'mcmod.info'
     }
 }
-
-jar { extension = 'jar'}

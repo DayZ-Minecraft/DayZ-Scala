@@ -6,10 +6,6 @@ import com.github.dayzminecraft.dayzscala.common.CommonProxy
 import cpw.mods.fml.common.event._
 import net.minecraft.network.INetworkManager
 import net.minecraft.entity.player.EntityPlayer
-import java.io.{ByteArrayInputStream, DataInputStream}
-import com.github.dayzminecraft.dayzscala.common.misc.Config
-import cpw.mods.fml.client.FMLClientHandler
-import net.minecraft.util.ChatMessageComponent
 
 class ClientProxy extends CommonProxy {
   override def preInit(e: FMLPreInitializationEvent) = {
@@ -33,23 +29,15 @@ class ClientProxy extends CommonProxy {
   }
 
   override def packetReceived(manager: INetworkManager, packet: Packet250CustomPayload, player: Player) = {
-    packet.channel match {
-      case "dayz-thirst" => handleClientThirst(new DataInputStream(new ByteArrayInputStream(packet.data)).readInt())
-    }
   }
 
   override def sendPacketToPlayer(packet: Packet, player: EntityPlayer) = {
-    PacketDispatcher.sendPacketToPlayer(packet, player.asInstanceOf[Player])
   }
 
   override def sendPacket(packet: Packet) = {
-    PacketDispatcher.sendPacketToServer(packet)
   }
 
   def handleClientThirst(percent: Int) = {
-    if (Config.useThirstChat) {
-      FMLClientHandler.instance().getClient.thePlayer.sendChatMessage(ChatMessageComponent.createFromTranslationKey("thirst.warning." + percent.toString + "percent").toString)
-    }
   }
 }
 
