@@ -3,6 +3,6 @@
   "dayzVersion": "9.0",
   "owner": "DayZ-Minecraft",
   "repository": "DayZ-Scala",
-  "prerelease": false,
+  "prerelease": true,
   "buildNumberOffset": 12
 }
