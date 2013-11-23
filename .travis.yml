@@ -6,7 +6,7 @@ branches:
   - master
 after_success:
   - wget https://www.dropbox.com/s/e9pdag7whg59azp/DayZ-Releaser-0.2.jar
-  - java -jar DayZ-Releaser-0.1.jar $USERNAME $PASSWORD $TRAVIS_BUILD_NUMBER $TRAVIS_BRANCH $TRAVIS_COMMIT
+  - java -jar DayZ-Releaser-0.2.jar $USERNAME $PASSWORD $TRAVIS_BUILD_NUMBER $TRAVIS_BRANCH $TRAVIS_COMMIT
 env:
   global:
   - secure: 9AXqLjd6uknm5PKYQ/8EwHfxYM0JYKv8nB0lSSESd4/QsPs6XPNoFPXLMtesyn+mgj7lDAwIHKmofbksGG+tPd4lQKbLyrNXaSF9oaqSBikCv+E3QJ96uVPLTDWzKmFF5Mq9PkpOc48rY+PDy5Ud6uRPSMckO/IoNJuD1JYNXdM=
