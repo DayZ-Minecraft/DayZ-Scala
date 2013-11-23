@@ -1,11 +1,11 @@
 language: java
-install: gradle setupCIWorkspace
+install: gradle -q setupCIWorkspace
 script: gradle build
 branches:
   only:
   - master
 after_success:
-  - wget https://www.dropbox.com/s/5rq3vhyvr1qw4ke/DayZ-Releaser-0.1.jar
+  - wget https://www.dropbox.com/s/e9pdag7whg59azp/DayZ-Releaser-0.2.jar
   - java -jar DayZ-Releaser-0.1.jar $USERNAME $PASSWORD $TRAVIS_BUILD_NUMBER $TRAVIS_BRANCH $TRAVIS_COMMIT
 env:
   global:
