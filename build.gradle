@@ -12,6 +12,7 @@ buildscript {
     }
 }
 
+apply plugin: 'scala'
 apply plugin: 'forge'
 
 group = 'com.github.dayzminecraft.dayzscala'
