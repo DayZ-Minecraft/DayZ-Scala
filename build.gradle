@@ -1,51 +1,53 @@
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'eclipse'
-apply plugin: 'maven'
-apply plugin: 'hoborelease'
-apply plugin: 'forge'
-
-group = 'com.github.hobos_taco.testproject'
-version = '10.4'
-minecraftVersion = '1.6.4'
-archivesBaseName = 'Test-Mod'
-targetCompatibility = '1.6'
-sourceCompatibility = '1.6'
-
 buildscript {
-	repositories {
-		mavenCentral()
-		maven {
-            name = "hobostaco"
-            url = "http://dayzminecraft.x10.mx/maven/"
-        }
-		maven {
-            name = "forge"
-            url = "http://files.minecraftforge.net/maven"
-        }
-	}
-	dependencies {
-		classpath 'com.github.hobos_taco.hoborelease:hoborelease:1.0'
-	}
+  repositories {
+    mavenCentral()
+    maven {
+      name = "forge"
+      url = "http://files.minecraftforge.net/maven"
+    }
+    maven {
+      name = "hobostaco"
+      url = "http://dayzminecraft.x10.mx/maven"
+    }
+  }
+  dependencies {
+    classpath "net.minecraftforge.gradle:ForgeGradle:1.0-SNAPSHOT"
+    classpath "com.github.hobos_taco.hoborelease:hoborelease:1.0"
+  }
 }
 
-release {
-	repositoryUsername = '$USERNAME'
-	repositoryPassword = '$PASSWORD'
-	repositoryOwner = 'DayZ-Minecraft'
-	repositoryName = 'DayZ-Scala'
-	buildNumber = "$TRAVIS_BUILD_NUMBER"
-	branch = '$TRAVIS_BRANCH'
-	commitSha = '$TRAVIS_COMMIT'
-	releaseName = project.archivesBaseName
-	releaseNumber = project.minecraftVersion + '-' + project.version
-	isDraft = false
-	releaseBranches = ["master"]
-	buildNumberOffset = 0
-}
+apply plugin: "forge"
+apply plugin: "hoborelease"
+
+version = "1.6.4-1.0" + "." + "$TRAVIS_JOB_NUMBER"
+group= "com.github.dayzminecraft.dayz" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "DayZ Minecraft"
 
 minecraft {
-	version = "1.6.4-9.11.1.960"
+  version = "1.6.4-9.11.1.964"
 }
 
-artifacts { archives jar }
+processResources
+{
+  from(sourceSets.main.resources.srcDirs) {
+    include "mcmod/info"
+    expand "version":project.version, "mcversion":project.minecraft.version
+  }
+
+  from(sourceSets.main.resources.srcDirs) {
+    exclude "mcmod.info"
+  }
+}
+
+githubRelease {
+  repositoryUsername = "$USERNAME"
+  repositoryPassword = "$PASSWORD"
+  repositoryOwner = "DayZ-Minecraft"
+  repositoryName = "DayZ-Scala"
+  branch = $TRAVIS_BRANCH
+  releaseBranches = ["master"]
+  commitSha = $TRAVIS_COMMIT
+  releaseName = project.archivesBaseName + " " + project.version
+  releaseVersion = project.version
+  isDraft = false
+}  
