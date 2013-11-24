@@ -1,5 +1,5 @@
 language: java
-install: gradle setupCIWorkspace
+install: gradle setupDevWorkspace
 script: gradle build
 after_success: gradle githubRelease
 env:
