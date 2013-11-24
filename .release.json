@@ -1,8 +1,0 @@
-{
-  "minecraftVersion": "1.6.4",
-  "dayzVersion": "9.1",
-  "owner": "DayZ-Minecraft",
-  "repository": "DayZ-Scala",
-  "prerelease": true,
-  "buildNumberOffset": 12
-}
