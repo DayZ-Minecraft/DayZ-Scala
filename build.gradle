@@ -3,6 +3,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'maven'
 apply plugin: 'hoborelease'
+apply plugin: 'forge'
 
 group = 'com.github.hobos_taco.testproject'
 version = '10.4'
@@ -17,6 +18,10 @@ buildscript {
 		maven {
             name = "hobostaco"
             url = "http://dayzminecraft.x10.mx/maven/"
+        }
+		maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
         }
 	}
 	dependencies {
