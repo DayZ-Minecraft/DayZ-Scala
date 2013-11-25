@@ -25,7 +25,6 @@ archivesBaseName = "DayZ Minecraft"
 
 minecraft {
   version = "1.6.4-9.11.1.964"
-  apiVersion = "1.6.4"
 }
 
 processResources
