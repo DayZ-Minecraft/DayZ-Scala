@@ -19,7 +19,7 @@ buildscript {
 apply plugin: "hoborelease"
 apply plugin: "forge"
 
-version = "1.6.4-1.0." + $TRAVIS_BUILD_NUMBER
+version = "1.6.4-1.0" + "." + System.getenv("TRAVIS_BUILD_NUMBER")
 group= "com.github.dayzminecraft.dayz"
 archivesBaseName = "DayZ Minecraft"
 
@@ -39,18 +39,18 @@ processResources
 }
 
 hoboRelease {
-  repositoryUsername = "$USERNAME"
-  repositoryPassword = "$PASSWORD"
+  repositoryUsername = System.getenv("USERNAME")
+  repositoryPassword = System.getenv("PASSWORD")
   repositoryOwner = "DayZ-Minecraft"
   repositoryName = "DayZ-Scala"
-  branch = "$TRAVIS_BRANCH"
+  branch = System.getenv("TRAVIS_BRANCH")
   releaseBranch = "master"
-  commitSha = "$TRAVIS_COMMIT"
+  commitSha = System.getenv("TRAVIS_COMMIT")
   releaseName = project.archivesBaseName + " " + project.version
   releaseVersion = project.version
   isDraft = false
-  ftpUsername = "$FTPUSERNAME"
-  ftpPassword = "$FTPPASSWORD"
+  ftpUsername = System.getenv("FTPUSERNAME")
+  ftpPassword = System.getenv("FTPPASSWORD")
   ftpServer = "ftp.dayzminecraft.x10.mx"
   ftpPort = 21
   ftpServerDirectory = "/files"
