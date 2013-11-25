@@ -1,8 +1,9 @@
 language: java
-install: gradle setupDevWorkspace
 script: gradle build
-after_success: gradle githubRelease
+after_success: gradle ftpRelease
 env:
   global:
-  - secure: 9AXqLjd6uknm5PKYQ/8EwHfxYM0JYKv8nB0lSSESd4/QsPs6XPNoFPXLMtesyn+mgj7lDAwIHKmofbksGG+tPd4lQKbLyrNXaSF9oaqSBikCv+E3QJ96uVPLTDWzKmFF5Mq9PkpOc48rY+PDy5Ud6uRPSMckO/IoNJuD1JYNXdM=
-  - secure: z2MHUczbFED+pjgdfaOLstCyg/k4qNVnKoaNE/kphFCcNeZeLp8ElS52V34t15iez2REtFdjU8zFi3QFm5GC6fiUykeGtg+Q4NI8pt+ZXTlJFbFUI2KXXoXQCyOqPkMSo0jFvovYkMIMaZaeg2+8sNupzuH0EV7yJpIb2oQ15U8=
+  - secure: "TUgtJFsAjFaJ//1rEiIUc173PkXCjmhuETiV63SWk1i9S22DbfU3HfOW3fCsXagN/MAPIS1mXi3BHC7yCWOLKGpCparWbGifHLU8l79qHUr/LXOcS/C8oR2A3zGb2CUMBRUTXPKZ5+5IrCW6gcOt8q7r9i+OdImRIzaFU28Cggk="
+  - secure: "GzMsact1A/aJde7YXZJq4hi6TxQtfnnt0xt5kpZfy+BRy8IomkhOfJxPty06+9EfSGkvlKkkHU0Wd98Go90B7gYIuhKvt8TiTk+GBGWj3z747KGfNrIHjFfdkAtYVNgXi86wWw1LQjPN5o+1IgwSfQbZHJPF8xfKjfkweHAYfyQ="
+  - secure: "dB5Uze+/chkiLks7gn/qJLxNP7b5AxTewJhFSOYRArdx1eQZJPXykBI6hffqnEPX9zFuxrs5hp9kaEJgLhfJ3LyT/gJk5oY5PbKEP/7BP5cztbeSCshKg6Mbt5vJYIGOO9j3BusxjF1p6A2rVFZiz+b/uZ6bZ5Zs0GLEJfb5dTM="
+  - secure: "JNvzXKE5T4IJx6XyIH+AEspDYA7vEpioArQWZHlzIlAHjai0e3mGeiSS8ezXgopQpOjVHPMRplKURzEN6d9Sho9SFhc3Guf8+UJ5axhTdHSclnVfssfylgvokddrf//X6c96yxE+L7FcZPRSTnPTktNzXQAC7Pq31g+Md36U+eY="

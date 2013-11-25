@@ -2,52 +2,35 @@ buildscript {
   repositories {
     mavenCentral()
     maven {
-      name = "forge"
-      url = "http://files.minecraftforge.net/maven"
-    }
-    maven {
       name = "hobostaco"
       url = "http://dayzminecraft.x10.mx/maven"
     }
   }
   dependencies {
-    classpath "net.minecraftforge.gradle:ForgeGradle:1.0-SNAPSHOT"
     classpath "com.github.hobos_taco.hoborelease:hoborelease:1.0"
   }
 }
 
-apply plugin: "forge"
 apply plugin: "hoborelease"
 
 version = "1.6.4-1.0" + "." + "$TRAVIS_JOB_NUMBER"
-group= "com.github.dayzminecraft.dayz" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group= "com.github.dayzminecraft.dayz"
 archivesBaseName = "DayZ Minecraft"
-
-minecraft {
-  version = "1.6.4-9.11.1.964"
-}
-
-processResources
-{
-  from(sourceSets.main.resources.srcDirs) {
-    include "mcmod/info"
-    expand "version":project.version, "mcversion":project.minecraft.version
-  }
-
-  from(sourceSets.main.resources.srcDirs) {
-    exclude "mcmod.info"
-  }
-}
 
 githubRelease {
   repositoryUsername = "$USERNAME"
   repositoryPassword = "$PASSWORD"
   repositoryOwner = "DayZ-Minecraft"
   repositoryName = "DayZ-Scala"
-  branch = $TRAVIS_BRANCH
-  releaseBranches = ["master"]
-  commitSha = $TRAVIS_COMMIT
+  branch = "$TRAVIS_BRANCH"
+  releaseBranch = "master"
+  commitSha = "$TRAVIS_COMMIT"
   releaseName = project.archivesBaseName + " " + project.version
   releaseVersion = project.version
   isDraft = false
+  ftpUsername = "$FTPUSERNAME"
+  ftpPassword = "$FTPPASSWORD"
+  ftpServer = "ftp.dayzminecraft.x10.mx"
+  ftpPort = 21
+  ftpServerDirectory = "/files"
 }  
