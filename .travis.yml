@@ -1,4 +1,5 @@
 language: java
+install: gradle setupCIWorkspace
 script: gradle build
 after_success: gradle ftpRelease
 env:

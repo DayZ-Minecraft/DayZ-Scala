@@ -5,19 +5,40 @@ buildscript {
       name = "hobostaco"
       url = "http://dayzminecraft.x10.mx/maven"
     }
+	maven {
+      name = "forge"
+      url = "http://files.minecraftforge.net/maven"
+    }
   }
   dependencies {
     classpath "com.github.hobos_taco.hoborelease:hoborelease:1.0"
+	classpath 'net.minecraftforge.gradle:ForgeGradle:1.0-SNAPSHOT'
   }
 }
 
 apply plugin: "hoborelease"
+apply plugin: 'forge'
 
 version = "1.6.4-1.0" + "." + "$TRAVIS_JOB_NUMBER"
 group= "com.github.dayzminecraft.dayz"
 archivesBaseName = "DayZ Minecraft"
 
-githubRelease {
+minecraft {
+  version = "1.6.4-9.11.1.964"
+}
+
+processResources
+{
+  from(sourceSets.main.resources.srcDirs) {
+    include 'mcmod/info'               
+    expand 'version':project.version, 'mcversion':project.minecraft.version
+  }       
+  from(sourceSets.main.resources.srcDirs) {
+    exclude 'mcmod.info'
+  }
+}
+
+hoboRelease {
   repositoryUsername = "$USERNAME"
   repositoryPassword = "$PASSWORD"
   repositoryOwner = "DayZ-Minecraft"
