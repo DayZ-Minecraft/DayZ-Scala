@@ -13,14 +13,13 @@ buildscript {
   dependencies {
     classpath "com.github.hobos_taco.hoborelease:hoborelease:1.0"
 	classpath "net.minecraftforge.gradle:ForgeGradle:1.0-SNAPSHOT"
-	classpath 'org.ow2.asm:asm-debug-all:4.1'
   }
 }
 
 apply plugin: "hoborelease"
 apply plugin: "forge"
 
-version = "1.6.4-1.1" + "." + System.getenv("TRAVIS_BUILD_NUMBER")
+version = "1.6.4-20.9" + "." + System.getenv("TRAVIS_BUILD_NUMBER")
 group= "com.github.dayzminecraft.dayz"
 archivesBaseName = "DayZ Minecraft"
 
@@ -31,7 +30,7 @@ minecraft {
 processResources
 {
   from(sourceSets.main.resources.srcDirs) {
-    include "mcmod/info"               
+    include "mcmod.info"               
     expand "version":project.version, "mcversion":project.minecraft.version
   }       
   from(sourceSets.main.resources.srcDirs) {
@@ -40,19 +39,17 @@ processResources
 }
 
 hoboRelease {
-  repositoryUsername = System.getenv("USERNAME")
-  repositoryPassword = System.getenv("PASSWORD")
+  repositoryUsername = System.getenv("REPOUSERNAME")
+  repositoryPassword = System.getenv("REPOPASSWORD")
   repositoryOwner = "DayZ-Minecraft"
   repositoryName = "DayZ-Scala"
-  branch = System.getenv("TRAVIS_BRANCH")
-  releaseBranch = "master"
   commitSha = System.getenv("TRAVIS_COMMIT")
-  releaseName = project.archivesBaseName + " " + project.version
-  releaseVersion = project.version
-  isDraft = false
-  ftpUsername = System.getenv("FTPUSERNAME")
+  ftpUsername = System.getenv("FTPUSRENAME")
   ftpPassword = System.getenv("FTPPASSWORD")
   ftpServer = "ftp.dayzminecraft.x10.mx"
   ftpPort = 21
-  ftpServerDirectory = "/files"
+  ftpReleaseBranch = "master"
+  ftpPreReleaseDirectory = "/prerelease"
+  downloadPage = "http://files.dayzminecraft.x10.mx/"
+  downloadLine = '        <tr><td><a href="http://files.dayzminecraft.x10.mx/DayZ-Minecraft-VERSION.jar">VERSION</a>COMMIT</td></tr>' 
 }  

@@ -1,10 +1,12 @@
 language: java
-install: gradle setupCIWorkspace
-script: gradle build
-after_success: gradle ftpRelease
+install: TERM=dumb gradle setupCIWorkspace
+script: TERM=dumb gradle build
+after_success:
+- TERM=dumb gradle ftpRelease
+- TERM=dumb gradle downloadPage
 env:
   global:
-  - secure: "TUgtJFsAjFaJ//1rEiIUc173PkXCjmhuETiV63SWk1i9S22DbfU3HfOW3fCsXagN/MAPIS1mXi3BHC7yCWOLKGpCparWbGifHLU8l79qHUr/LXOcS/C8oR2A3zGb2CUMBRUTXPKZ5+5IrCW6gcOt8q7r9i+OdImRIzaFU28Cggk="
-  - secure: "GzMsact1A/aJde7YXZJq4hi6TxQtfnnt0xt5kpZfy+BRy8IomkhOfJxPty06+9EfSGkvlKkkHU0Wd98Go90B7gYIuhKvt8TiTk+GBGWj3z747KGfNrIHjFfdkAtYVNgXi86wWw1LQjPN5o+1IgwSfQbZHJPF8xfKjfkweHAYfyQ="
-  - secure: "dB5Uze+/chkiLks7gn/qJLxNP7b5AxTewJhFSOYRArdx1eQZJPXykBI6hffqnEPX9zFuxrs5hp9kaEJgLhfJ3LyT/gJk5oY5PbKEP/7BP5cztbeSCshKg6Mbt5vJYIGOO9j3BusxjF1p6A2rVFZiz+b/uZ6bZ5Zs0GLEJfb5dTM="
-  - secure: "JNvzXKE5T4IJx6XyIH+AEspDYA7vEpioArQWZHlzIlAHjai0e3mGeiSS8ezXgopQpOjVHPMRplKURzEN6d9Sho9SFhc3Guf8+UJ5axhTdHSclnVfssfylgvokddrf//X6c96yxE+L7FcZPRSTnPTktNzXQAC7Pq31g+Md36U+eY="
+  - secure: aQJpNBZR5P83afKnkHmn/SvT5wIIX126zPDX/sejPUSWrlN3j90FjxXovrVZLsVoLM2HU1GoRCPXU2/Tb1fV1FljJ+uNAVoGFtjfGzJLcKu6hrVBIq9P2w1yxtq3uy1lRz5Z0evgTACA04dP8a78xsjqGwhYMWte4QZrVy7DNVQ=
+  - secure: j98Ry4zrU4I3rrQhpO8VITeySocasqIlBL1jrHBVvugr395ExIinLuuL6vDRSX04ZJsDXLjDvjlgy4MX0QKIbhSKr87Vqlf2/fEEpR/2Mig2RqF+zfG0ZJYZd4qnL9kJZm0MjsVd8QSWgOlFY4ohuunGkoCic1+7oSWcpJP7J1Y=
+  - secure: afx592CfDA5XDie9frblXYyCkVZFYab1RCKwDFp68+5E2NLNzGsyv/yYuJ9Fw4M8K/3Xhq4kzVrRcfsvo3FJpeEwvs+lEkEitv621sWGATMy1FTipVMEUMAKPXQAYJRsILEDbpZcd0D1prJRAyKzIokLtQs524FhJXRgt8OzGtY=
+  - secure: 8OnozEsM3kDYL0ShMFHPp1DS4+jg316pZAqcNY5hG8gnHbxTsjy3cj9G3roCj11U5D5cE5bASr1sD0BLZsvsHX+bJn6gRpTx2AG5wEY9A05uoGTmssoDh0ObiuSZzoZD9X0mfLsaGqGD77W9EuimC0JJX1iEMgzSecn8qGrAql4=
