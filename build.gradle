@@ -45,7 +45,7 @@ hoboRelease {
   repositoryName = "DayZ-Scala"
   branch = System.getenv("TRAVIS_BRANCH")
   commitSha = System.getenv("TRAVIS_COMMIT")
-  ftpUsername = System.getenv("FTPUSRENAME")
+  ftpUsername = System.getenv("FTPUSERNAME")
   ftpPassword = System.getenv("FTPPASSWORD")
   ftpServer = "ftp.dayzminecraft.x10.mx"
   ftpPort = 21
