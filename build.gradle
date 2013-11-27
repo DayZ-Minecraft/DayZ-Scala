@@ -50,6 +50,6 @@ hoboRelease {
   ftpPort = 21
   ftpReleaseBranch = "master"
   ftpPreReleaseDirectory = "/prerelease"
-  downloadPage = "http://files.dayzminecraft.x10.mx/"
+  downloadPage = "http://files.dayzminecraft.x10.mx"
   downloadLine = '        <tr><td><a href="http://files.dayzminecraft.x10.mx/DayZ-Minecraft-VERSION.jar">VERSION</a>COMMIT</td></tr>' 
 }  
