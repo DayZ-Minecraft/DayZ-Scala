@@ -43,13 +43,14 @@ hoboRelease {
   repositoryPassword = System.getenv("REPOPASSWORD")
   repositoryOwner = "DayZ-Minecraft"
   repositoryName = "DayZ-Scala"
-  branch = System.getenv("TRAVIS_BRANCH")
   commitSha = System.getenv("TRAVIS_COMMIT")
+  
   ftpUsername = System.getenv("FTPUSERNAME")
   ftpPassword = System.getenv("FTPPASSWORD")
   ftpServer = "ftp.dayzminecraft.x10.mx"
   ftpPort = 21
-  ftpReleaseBranch = "master"
+  
   downloadPage = "http://files.dayzminecraft.x10.mx"
-  downloadLine = '        <tr><td>STATE<a href="http://files.dayzminecraft.x10.mx/DayZ-Minecraft-VERSION.jar">VERSION</a>COMMIT</td></tr>' 
+  latestLine = '          <li class="downloads"><a href="http://files.dayzminecraft.x10.mx/DayZ-Minecraft-VERSION.jar">Latest (VERSION)</a></li>'
+  stableLine = '          <li class="downloads"><a href="http://files.dayzminecraft.x10.mx/DayZ-Minecraft-VERSION.jar">Stable (VERSION)</a></li>' 
 }
