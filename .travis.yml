@@ -2,8 +2,8 @@ language: java
 install: TERM=dumb gradle setupCIWorkspace
 script: TERM=dumb gradle build
 after_success:
-- TERM=dumb gradle ftpRelease
-- TERM=dumb gradle downloadPage
+- TERM=dumb gradle ftpRelease --stacktrace
+- TERM=dumb gradle downloadPage --stacktrace
 env:
   global:
   - secure: aQJpNBZR5P83afKnkHmn/SvT5wIIX126zPDX/sejPUSWrlN3j90FjxXovrVZLsVoLM2HU1GoRCPXU2/Tb1fV1FljJ+uNAVoGFtjfGzJLcKu6hrVBIq9P2w1yxtq3uy1lRz5Z0evgTACA04dP8a78xsjqGwhYMWte4QZrVy7DNVQ=
