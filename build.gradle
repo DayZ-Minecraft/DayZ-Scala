@@ -43,6 +43,7 @@ hoboRelease {
   repositoryPassword = System.getenv("REPOPASSWORD")
   repositoryOwner = "DayZ-Minecraft"
   repositoryName = "DayZ-Scala"
+  branch = System.getenv("TRAVIS_BRANCH")
   commitSha = System.getenv("TRAVIS_COMMIT")
   ftpUsername = System.getenv("FTPUSRENAME")
   ftpPassword = System.getenv("FTPPASSWORD")
