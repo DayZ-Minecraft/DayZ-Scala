@@ -39,14 +39,14 @@ processResources
 }
 
 hoboRelease {
-  repositoryUsername = System.getenv("REPOUSERNAME")
-  repositoryPassword = System.getenv("REPOPASSWORD")
+  repositoryUsername = System.getenv("REPO_USERNAME")
+  repositoryPassword = System.getenv("REPO_PASSWORD")
   repositoryOwner = "DayZ-Minecraft"
   repositoryName = "DayZ-Scala"
   commitSha = System.getenv("TRAVIS_COMMIT")
   
-  ftpUsername = System.getenv("FTPUSERNAME")
-  ftpPassword = System.getenv("FTPPASSWORD")
+  ftpUsername = System.getenv("FTP_USERNAME")
+  ftpPassword = System.getenv("FTP_PASSWORD")
   ftpServer = "ftp.dayzminecraft.x10.mx"
   ftpPort = 21
   
