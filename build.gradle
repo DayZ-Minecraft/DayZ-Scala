@@ -5,7 +5,7 @@ buildscript {
       name = "hobostaco"
       url = "http://dayzminecraft.x10.mx/maven"
     }
-      maven {
+    maven {
       name = "forge"
       url = "http://files.minecraftforge.net/maven"
     }
